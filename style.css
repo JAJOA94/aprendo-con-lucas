@@ -5082,3 +5082,274 @@ body {
     min-height: clamp(96px, 16vh, 150px) !important;
   }
 }
+
+/* =========================================================
+   32. JUGAR EN MÓVIL: LAS 3 OPCIONES SIEMPRE VISIBLES Y ALCANZABLES
+   La sección 26.4 dejaba .pantalla-juego con overflow:hidden y max-height,
+   así que en un teléfono bajito las opciones quedaban cortadas y la
+   pantalla no se podía desplazar. Ahora:
+     · el contenido se compacta para que quepa de una vez,
+     · y si aun así no cabe, la pantalla permite scroll (nunca recorta).
+   ========================================================= */
+
+/* ---------- 32.0 Se libera el recorte en CUALQUIER móvil ---------- */
+@media (max-width: 650px) {
+
+  .pantalla.pantalla-juego,
+  .pantalla-juego {
+    overflow-y: auto !important;        /* se puede desplazar */
+    overflow-x: hidden !important;
+    max-height: none !important;        /* sin tope rígido */
+    height: auto !important;
+    min-height: 100dvh;
+    padding: 6px 8px !important;
+    gap: 8px !important;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* ---------- 32.1 Cabecera y barra compactas ---------- */
+
+  .cabecera {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 4px 6px !important;
+    gap: 6px;
+  }
+
+  .titulo {
+    font-size: 1.1rem !important;
+    padding: 4px 12px !important;
+    margin: 0 !important;
+    flex: 0 1 auto;
+  }
+
+  .cabecera-acciones {
+    position: static !important;        /* ya no flota: va en la fila */
+    transform: none !important;
+    right: auto !important;
+    top: auto !important;
+    gap: 6px;
+    flex: 0 0 auto;
+  }
+
+  .cabecera-acciones button,
+  .cabecera-acciones .boton-voz {
+    width: 38px !important;
+    min-width: 38px !important;
+    height: 38px !important;
+    min-height: 38px !important;
+    padding: 0 !important;
+    font-size: 1rem !important;
+    border-width: 3px !important;
+  }
+
+  .cabecera-acciones .texto-accion {
+    display: none;
+  }
+
+  .barra-juego {
+    padding: 3px 8px !important;
+    row-gap: 3px;
+    margin: 0 !important;
+  }
+
+  .barra-juego .titulo-seccion {
+    font-size: 0.95rem !important;
+    padding: 4px 12px !important;
+  }
+
+  .barra-juego .etiqueta-etapa {
+    font-size: 0.7rem !important;
+    padding: 3px 8px !important;
+  }
+
+  .barra-juego .marcador {
+    padding: 2px 8px !important;
+  }
+
+  .barra-juego .marcador-numero {
+    font-size: 0.85rem !important;
+  }
+
+  /* ---------- 32.2 Objetivo y pregunta, más contenidos ---------- */
+
+  .objetivo-juego,
+  .color-objetivo,
+  .animal-objetivo,
+  .fruta-objetivo,
+  .forma-objetivo,
+  .numero-objetivo,
+  .vocales-objetivo,
+  .pantalla-juego .pregunta [class*="-objetivo"]:not(.cantidad-objetivo) {
+    width: clamp(75px, 14vh, 95px) !important;
+    height: clamp(75px, 14vh, 95px) !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+  }
+
+  .pantalla-juego .pregunta [class*="-objetivo"] span,
+  .pantalla-juego .pregunta .dibujo-letra-grande,
+  .pantalla-juego .pregunta .numero-grande,
+  .pantalla-juego .pregunta .animal-grande,
+  .pantalla-juego .pregunta .fruta-grande,
+  .pantalla-juego .pregunta .dibujo-grande {
+    font-size: 2.6rem !important;
+  }
+
+  .pantalla-juego .pregunta [class*="-objetivo"] img,
+  .pantalla-juego .pregunta .dibujo-imagen-grande {
+    width: 70% !important;
+    height: 70% !important;
+    object-fit: contain !important;
+  }
+
+  .pregunta-texto,
+  .nombre-color,
+  .nombre-numero,
+  .nombre-animal,
+  .nombre-fruta,
+  .pregunta p {
+    font-size: 1rem !important;
+    margin: 2px 0 !important;
+    line-height: 1.2;
+  }
+
+  /* ---------- 32.3 La fila de las 3 opciones ---------- */
+
+  .opciones-juego,
+  .opciones-colores,
+  .opciones-numeros,
+  .opciones-animales,
+  .opciones-formas,
+  .opciones-frutas,
+  .opciones-cantidad,
+  [id^="opciones-"],
+  .pantalla-juego .zona-juego [class^="opciones-"] {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 8px !important;
+    margin-top: 4px !important;
+    padding: 2px 4px !important;
+  }
+
+  .pantalla-juego .zona-juego .opciones-juego > *,
+  .pantalla-juego .zona-juego [class^="opciones-"] > *,
+  .pantalla-juego .zona-juego [id^="opciones-"] > *,
+  .pantalla-juego .opciones-juego > *,
+  .pantalla-juego [class^="opciones-"] > *,
+  .opciones-juego > *,
+  [id^="opciones-"] > *,
+  .boton-nuevo,
+  .boton-color,
+  .boton-numero,
+  .boton-animal,
+  .boton-fruta,
+  .boton-cantidad {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    max-width: 110px !important;
+    height: clamp(80px, 14vh, 105px) !important;
+    min-height: 0 !important;
+    padding: 6px 4px !important;
+    border-radius: 18px !important;
+  }
+
+  .pantalla-juego .dibujo-emoji,
+  .pantalla-juego .animal-emoji,
+  .pantalla-juego .fruta-emoji,
+  .pantalla-juego [class^="opciones-"] .dibujo-emoji,
+  .opciones-juego .dibujo-emoji {
+    font-size: 2rem !important;
+    line-height: 1;
+  }
+
+  .pantalla-juego .opcion-nombre,
+  .pantalla-juego .animal-nombre,
+  .pantalla-juego .fruta-nombre,
+  [class^="opciones-"] .opcion-nombre,
+  .opciones-juego .opcion-nombre {
+    font-size: 0.72rem !important;
+    font-weight: 800;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  /* El recuadro de contar sigue ancho (no es un círculo) */
+  .cantidad-objetivo,
+  .pantalla-juego .pregunta .cantidad-objetivo {
+    width: min(94%, 380px) !important;
+    height: auto !important;
+    min-height: clamp(84px, 13vh, 130px) !important;
+    padding: 8px 12px !important;
+  }
+
+  .cantidad-objetivo .objeto {
+    font-size: clamp(1.7rem, 7vw, 2.2rem) !important;
+  }
+}
+
+/* ---------- 32.4 Teléfonos muy bajitos: aún más compacto ---------- */
+@media (max-width: 650px) and (max-height: 620px) {
+  .objetivo-juego,
+  .color-objetivo,
+  .animal-objetivo,
+  .fruta-objetivo,
+  .forma-objetivo,
+  .numero-objetivo,
+  .vocales-objetivo,
+  .pantalla-juego .pregunta [class*="-objetivo"]:not(.cantidad-objetivo) {
+    width: clamp(66px, 13vh, 88px) !important;
+    height: clamp(66px, 13vh, 88px) !important;
+  }
+
+  .pantalla-juego .pregunta [class*="-objetivo"] span,
+  .pantalla-juego .pregunta .dibujo-letra-grande,
+  .pantalla-juego .pregunta .numero-grande,
+  .pantalla-juego .pregunta .animal-grande,
+  .pantalla-juego .pregunta .fruta-grande {
+    font-size: 2.2rem !important;
+  }
+
+  .pantalla-juego .zona-juego .opciones-juego > *,
+  .pantalla-juego .zona-juego [class^="opciones-"] > *,
+  .pantalla-juego .zona-juego [id^="opciones-"] > *,
+  [id^="opciones-"] > *,
+  .boton-nuevo,
+  .boton-color,
+  .boton-numero,
+  .boton-animal,
+  .boton-fruta,
+  .boton-cantidad {
+    height: clamp(72px, 13vh, 96px) !important;
+  }
+
+  .barra-juego {
+    padding: 2px 6px !important;
+  }
+
+  .titulo {
+    font-size: 1rem !important;
+  }
+}
+
+/* ---------- 32.5 Red de seguridad: pantallas de poca altura (cualquier ancho) ----------
+   Si la ventana es tan baja que el juego no cabe, se permite desplazar
+   en vez de recortar las opciones. Vale también para tablets y escritorio. */
+
+@media (max-height: 520px) {
+  .pantalla-juego {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    max-height: none !important;
+    height: auto !important;
+    justify-content: flex-start;
+  }
+}
