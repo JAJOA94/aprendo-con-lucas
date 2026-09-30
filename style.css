@@ -4846,3 +4846,90 @@ body {
     font-size: clamp(1rem, 4.4vw, 1.7rem);
   }
 }
+
+/* =========================================================
+   30. SIN RECUADRO: LA ACCIÓN OCUPA TODA LA PANTALLA
+   Se eliminan los contenedores blancos flotantes (la tarjeta de
+   .pantalla y las cajas del menú) para que todo se vea integrado
+   en el fondo degradado, de borde a borde.
+   ========================================================= */
+
+/* ---------- 30.1 Fuera la tarjeta blanca de cada pantalla ---------- */
+
+.pantalla {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+  inset: 0 !important;
+  padding: 10px 16px !important;
+
+  border-radius: 0 !important;
+}
+
+/* ---------- 30.2 Fuera las cajas del menú ---------- */
+
+.grupo-mundo,
+.grupo-directos {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 8px 0 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-radius: 0 !important;
+}
+
+/* ---------- 30.3 La app de borde a borde ---------- */
+
+html,
+body {
+  overflow-x: hidden;          /* evita el scroll lateral del 100vw */
+}
+
+.app {
+  width: 100vw !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 10px 16px !important;
+}
+
+.escenario {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+/* ---------- 30.4 Rejillas que fluyen, sin encierro ---------- */
+
+.album-pista,
+.aprender-lista,
+.opciones-juego,
+[id^="opciones-"],
+.zona-aprender .album-pista,
+.zona-aprender .aprender-lista {
+  width: 100% !important;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* ---------- 30.5 Lo que sí conserva su cajita (títulos y tarjetas) ----------
+   La barra del título, las tarjetas del álbum y los botones siguen con su
+   fondo propio: son elementos, no contenedores. Solo se suaviza el aire. */
+
+.zona-aprender,
+.zona-juego {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
