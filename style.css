@@ -5516,3 +5516,100 @@ body {
   z-index: auto !important;
   white-space: normal !important;
 }
+
+/* =========================================================
+   35. TIPOGRAFÍA INFANTIL Y LETRAS/NÚMEROS DE JUGUETE
+   Fredoka (SIL Open Font License 1.1 — https://fonts.google.com/specimen/Fredoka)
+   va incluida en assets/fuentes/ para que el juego funcione sin internet,
+   y además se carga de Google Fonts desde index.html.
+   ========================================================= */
+
+@font-face {
+  font-family: "Fredoka";
+  font-style: normal;
+  font-weight: 300 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/fuentes/fredoka-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                 U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+                 U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Fredoka";
+  font-style: normal;
+  font-weight: 300 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/fuentes/fredoka-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+                 U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF,
+                 U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+:root {
+  --fuente: "Fredoka", "Baloo 2", "Comic Sans MS", "Chalkboard SE", "Trebuchet MS", cursive, sans-serif;
+}
+
+/* ---------- 35.1 Números y letras con estilo de bloque de juguete ---------- */
+
+/* Fredoka es una fuente variable de 300 a 700: al pedir 900 el navegador
+   usa su máximo (700) sin inventar negrita, así que las letras quedan
+   gorditas de verdad. */
+
+.numero-grande,
+.dibujo-letra-grande,
+.dibujo-letra,
+.aprender-letra,
+.aprender-dibujo.aprender-letra,
+.album-dibujo.aprender-letra,
+.album-dibujo.dibujo-letra,
+.boton-numero,
+.boton-nuevo .dibujo-letra {
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  text-shadow: 0 4px 0 rgba(0, 0, 0, 0.12);
+}
+
+/* Números: naranja vivo con sombrita de bloque */
+.numero-grande {
+  color: #ff7a3d;
+}
+
+.boton-numero {
+  color: #ff7a3d;
+  text-shadow: 0 4px 0 rgba(0, 0, 0, 0.12), 0 0 18px rgba(255, 122, 61, 0.25);
+}
+
+/* Letras: morado chispeante, con un tono más claro para la minúscula */
+.dibujo-letra-grande,
+.aprender-letra,
+.aprender-dibujo.aprender-letra,
+.album-dibujo.aprender-letra,
+.album-dibujo.dibujo-letra,
+.boton-nuevo .dibujo-letra {
+  color: #7b58e6;
+  text-shadow: 0 4px 0 rgba(0, 0, 0, 0.12), 0 0 20px rgba(123, 88, 230, 0.22);
+}
+
+/* Un pelín de vida extra: las letras grandes laten muy despacio */
+@media (prefers-reduced-motion: no-preference) {
+  .dibujo-letra-grande,
+  .numero-grande {
+    animation: flotar-letra 3.2s ease-in-out infinite;
+  }
+}
+
+@keyframes flotar-letra {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-3px); }
+}
+
+/* Los botones y campos heredan la fuente infantil */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}

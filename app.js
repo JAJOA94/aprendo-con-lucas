@@ -1789,12 +1789,15 @@
   /* Cada vocal se muestra con mayúscula y minúscula juntas ("Aa").
      El nombre sigue siendo la letra sola ("A") para que la voz diga
      "Esta es la A." y no deletree. */
+  /* El nombre va en minúscula ("a") a propósito: es lo que recibe la voz.
+     Si se le pasa la letra suelta en mayúscula ("A"), muchos sintetizadores
+     la leen como "A mayúscula"; con la minúscula dicen "la a", natural. */
   const VOCALES = [
-    { id: "a", nombre: "A", emoji: "Aa" },
-    { id: "e", nombre: "E", emoji: "Ee" },
-    { id: "i", nombre: "I", emoji: "Ii" },
-    { id: "o", nombre: "O", emoji: "Oo" },
-    { id: "u", nombre: "U", emoji: "Uu" }
+    { id: "a", nombre: "a", emoji: "Aa" },
+    { id: "e", nombre: "e", emoji: "Ee" },
+    { id: "i", nombre: "i", emoji: "Ii" },
+    { id: "o", nombre: "o", emoji: "Oo" },
+    { id: "u", nombre: "u", emoji: "Uu" }
   ];
 
   const juegoVocales = crearJuegoNuevo({
