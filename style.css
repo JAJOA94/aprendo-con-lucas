@@ -5353,3 +5353,80 @@ body {
     justify-content: flex-start;
   }
 }
+
+/* =========================================================
+   33. EL JUEGO ARRIBA Y CENTRADO (sin hueco en el medio)
+   La sección 26.4 usaba justify-content: space-between, que empujaba
+   la zona de juego al fondo dejando un vacío enorme en el centro.
+   ========================================================= */
+
+.pantalla-juego,
+.pantalla.pantalla-juego {
+  justify-content: flex-start !important;   /* el contenido sube */
+  height: auto !important;
+  min-height: 0 !important;
+  padding-top: 6px !important;
+  gap: clamp(12px, 2.5vh, 24px) !important;
+}
+
+/* La zona de juego no se estira: se queda pegada a la barra con un
+   margen suave, ni arriba del todo ni tirada al fondo. */
+.pantalla-juego .zona-juego {
+  flex: 0 1 auto !important;
+  margin-top: clamp(10px, 3vh, 30px) !important;
+  gap: clamp(14px, 2.8vh, 24px) !important;
+}
+
+/* ---------- 33.1 Proporciones en pantallas medianas y grandes ----------
+   (En móvil mandan las medidas compactas de la sección 32, ya verificadas
+   a 320, 360, 375, 390 y 412 px: el juego entra entero sin desplazar.) */
+
+@media (min-width: 651px) {
+
+  .objetivo-juego,
+  .color-objetivo,
+  .animal-objetivo,
+  .fruta-objetivo,
+  .forma-objetivo,
+  .numero-objetivo,
+  .vocales-objetivo,
+  .pantalla-juego .pregunta [class*="-objetivo"]:not(.cantidad-objetivo) {
+    width: clamp(110px, 19vh, 160px) !important;
+    height: clamp(110px, 19vh, 160px) !important;
+  }
+
+  .pregunta-texto,
+  .nombre-color,
+  .nombre-numero,
+  .nombre-animal,
+  .nombre-fruta,
+  .pregunta p {
+    font-size: clamp(1.2rem, 2.6vh, 1.6rem) !important;
+    margin: 6px 0 !important;
+  }
+
+  .pantalla-juego .zona-juego .opciones-juego > *,
+  .pantalla-juego .zona-juego [class^="opciones-"] > *,
+  .pantalla-juego .zona-juego [id^="opciones-"] > *,
+  .pantalla-juego .opciones-juego > *,
+  .pantalla-juego [class^="opciones-"] > *,
+  .opciones-juego > *,
+  [id^="opciones-"] > *,
+  .boton-nuevo,
+  .boton-color,
+  .boton-numero,
+  .boton-animal,
+  .boton-fruta,
+  .boton-cantidad {
+    height: clamp(110px, 18vh, 160px) !important;
+    max-width: 180px !important;
+  }
+
+  /* El recuadro de contar mantiene su forma rectangular */
+  .cantidad-objetivo,
+  .pantalla-juego .pregunta .cantidad-objetivo {
+    width: min(92%, 520px) !important;
+    height: auto !important;
+    min-height: clamp(120px, 20vh, 180px) !important;
+  }
+}
