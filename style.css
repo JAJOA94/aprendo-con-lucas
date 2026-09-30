@@ -4933,3 +4933,152 @@ body {
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
+
+/* =========================================================
+   31. MODO JUGAR EN MÓVIL: LAS 3 OPCIONES EN UNA SOLA FILA
+   El apilado venía de un min-width propio (clamp(105px, 20vh, 155px))
+   que en un móvil alto obligaba a envolver. Ahora la fila nunca se
+   envuelve y los botones se reparten el ancho disponible.
+   ========================================================= */
+
+/* ---------- 31.1 Las opciones, siempre en fila ---------- */
+
+.opciones-juego,
+.opciones-colores,
+.opciones-numeros,
+.opciones-animales,
+.opciones-formas,
+.opciones-frutas,
+.opciones-cantidad,
+[id^="opciones-"],
+.pantalla-juego .zona-juego .opciones-juego,
+.pantalla-juego .zona-juego [class^="opciones-"],
+.pantalla-juego .zona-juego [id^="opciones-"] {
+  display: flex !important;
+  flex-direction: row !important;      /* nunca en columna */
+  flex-wrap: nowrap !important;        /* nunca se envuelven */
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  gap: clamp(8px, 2.5vw, 16px) !important;
+  padding: 4px 8px !important;
+}
+
+/* ---------- 31.2 Botones del juego: tamaño adaptable ---------- */
+
+/* Especificidad suficiente para ganar al min-width de la sección 26.4 */
+.pantalla-juego .zona-juego .opciones-juego > *,
+.pantalla-juego .zona-juego [class^="opciones-"] > *,
+.pantalla-juego .zona-juego [id^="opciones-"] > *,
+.pantalla-juego .opciones-juego > *,
+.pantalla-juego [class^="opciones-"] > *,
+.opciones-juego > *,
+[id^="opciones-"] > *,
+.boton-nuevo,
+.boton-color,
+.boton-numero,
+.boton-animal,
+.boton-fruta,
+.boton-cantidad {
+  flex: 1 1 0 !important;
+  min-width: 85px !important;          /* anula el min-width grande anterior */
+  max-width: 115px !important;
+  height: clamp(95px, 16vh, 130px) !important;
+  min-height: 0 !important;
+  padding: 6px 4px !important;
+  border-width: 4px !important;
+  border-radius: 20px !important;
+}
+
+/* Dentro del botón, todo proporcional */
+.opciones-juego .dibujo-emoji,
+.opciones-juego .animal-emoji,
+.opciones-juego .fruta-emoji,
+.opciones-juego .numero-emoji,
+[id^="opciones-"] .dibujo-emoji,
+[id^="opciones-"] .animal-emoji {
+  font-size: clamp(2rem, 8vw, 2.6rem) !important;
+  line-height: 1;
+}
+
+.opciones-juego .dibujo-imagen,
+[id^="opciones-"] .dibujo-imagen {
+  width: 70% !important;
+  height: 70% !important;
+  object-fit: contain !important;
+}
+
+.opciones-juego .opcion-nombre,
+.opciones-juego .animal-nombre,
+.opciones-juego .fruta-nombre,
+[id^="opciones-"] .opcion-nombre,
+[id^="opciones-"] .animal-nombre {
+  font-size: clamp(0.7rem, 2.8vw, 0.85rem) !important;
+  line-height: 1.1;
+}
+
+/* ---------- 31.3 Móvil: objetivo, pregunta y cabecera ---------- */
+
+@media (max-width: 600px) {
+
+  /* El círculo/tarjeta objetivo, más contenido (el de contar se mantiene
+     rectangular: es un recuadro ancho con los objetos en fila) */
+  .objetivo-juego,
+  .color-objetivo,
+  .animal-objetivo,
+  .fruta-objetivo,
+  .forma-objetivo,
+  .numero-objetivo,
+  .vocales-objetivo,
+  [class*="-objetivo"]:not(.cantidad-objetivo) {
+    width: clamp(95px, 22vw, 120px) !important;
+    height: clamp(95px, 22vw, 120px) !important;
+    min-width: 0 !important;
+  }
+
+  /* Emojis y letras dentro del objetivo */
+  .pregunta [class*="-objetivo"] span,
+  .pregunta .dibujo-letra-grande,
+  .pregunta .numero-grande,
+  .pregunta .animal-grande,
+  .pregunta .fruta-grande {
+    font-size: clamp(2.8rem, 12vw, 3.8rem) !important;
+  }
+
+  /* Texto de la pregunta */
+  .pregunta-texto,
+  .nombre-color,
+  .nombre-numero,
+  .nombre-animal,
+  .nombre-fruta,
+  .pregunta p {
+    font-size: clamp(1rem, 4.2vw, 1.25rem) !important;
+    margin: 4px 0 !important;
+  }
+
+  /* Cabecera y barra más compactas: que todo entre sin scroll */
+  .cabecera {
+    padding: 4px 12px 6px !important;
+  }
+
+  .barra-juego {
+    padding: 4px 8px !important;
+    row-gap: 4px;
+  }
+
+  .pantalla {
+    padding: 6px 10px !important;
+  }
+
+  .pantalla-juego .zona-juego {
+    gap: clamp(4px, 1vh, 10px);
+  }
+
+  /* El recuadro de contar sigue ancho y creciendo con sus objetos */
+  .cantidad-objetivo,
+  .pantalla-juego .pregunta .cantidad-objetivo {
+    width: min(94%, 420px) !important;
+    height: auto !important;
+    min-height: clamp(96px, 16vh, 150px) !important;
+  }
+}
