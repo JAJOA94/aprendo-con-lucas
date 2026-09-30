@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%" role="img" aria-label="manzana roja">
+<rect width="200" height="200" fill="#fffdf6"/>
+<path d="M100 36 C120 8 152 10 156 26 C158 42 126 52 100 36 Z" fill="#4b7f2b" stroke="#2b2b40" stroke-width="6" stroke-linejoin="round"/>
+<path d="M100 64 L100 22" fill="none" stroke="#2b2b40" stroke-width="8" stroke-linecap="round"/>
+<path d="M100 58 C92 40 74 30 56 34 C34 40 22 62 22 96 C22 138 54 178 100 184 C146 178 178 138 178 96 C178 62 166 40 144 34 C126 30 108 40 100 58 Z" fill="#e6392f" stroke="#2b2b40" stroke-width="6" stroke-linejoin="round"/>
+</svg>

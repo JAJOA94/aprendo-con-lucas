@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+<rect width="200" height="200" fill="#fffdf5"/>
+<!-- mano abierta: palma y 5 dedos -->
+<path d="M 60,190 Q 104,206 148,190 L 156,162 Q 159,124 154,110 L 152,74 Q 152,46 141,46 Q 130,46 130,74 L 130,94 Q 130,100 128,100 Q 126,100 126,94 L 126,58 Q 126,30 115,30 Q 104,30 104,58 L 104,94 Q 104,100 102,100 Q 100,100 100,94 L 100,50 Q 100,22 89,22 Q 78,22 78,50 L 78,94 Q 78,100 76,100 Q 74,100 74,94 L 74,62 Q 74,34 63,34 Q 52,34 52,62 L 52,74 Q 44,66 34,70 Q 20,76 24,98 Q 28,120 48,124 L 48,150 Q 46,172 60,190 Z" fill="#ffd9a8" stroke="#2b2b40" stroke-width="5" stroke-linejoin="round"/>
+<path d="M 68,148 Q 100,162 132,148" fill="none" stroke="#e8b985" stroke-width="5" stroke-linecap="round"/>
+</svg>

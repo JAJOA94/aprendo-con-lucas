@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+<rect width="200" height="200" fill="#fffdf5"/>
+<!-- una oreja grande de perfil -->
+<ellipse cx="104" cy="102" rx="58" ry="76" fill="#ffd9a8" stroke="#2b2b40" stroke-width="5"/>
+<path d="M 122,40 C 86,58 74,100 92,134 C 102,154 126,162 138,146" fill="none" stroke="#2b2b40" stroke-width="5" stroke-linecap="round"/>
+<path d="M 122,64 C 100,78 94,104 106,124" fill="none" stroke="#2b2b40" stroke-width="5" stroke-linecap="round"/>
+</svg>

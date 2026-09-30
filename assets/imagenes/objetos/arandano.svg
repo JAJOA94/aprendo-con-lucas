@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%" role="img" aria-label="arandano azul">
+<rect width="200" height="200" fill="#fffdf6"/>
+<ellipse cx="132" cy="34" rx="28" ry="14" fill="#4b7f2b" stroke="#2b2b40" stroke-width="6" transform="rotate(-22 132 34)"/>
+<path d="M100 74 L100 26" fill="none" stroke="#2b2b40" stroke-width="9" stroke-linecap="round"/>
+<ellipse cx="100" cy="118" rx="64" ry="58" fill="#1e88e5" stroke="#2b2b40" stroke-width="6"/>
+<path d="M100 65 L103.8 74.7 L114.3 75.4 L106.2 82 L108.8 92.1 L100 86.5 L91.2 92.1 L93.8 82 L85.7 75.4 L96.2 74.7 Z" fill="#2b2b40"/>
+</svg>

@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Juego educativo para niños: colores, números, formas, contar objetos, animales y frutas.">
+  <title>🌈 APRENDO CON LUCAS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- ===== CABECERA ===== -->
+    <header class="cabecera">
+      <h1 class="titulo">🌈 APRENDO CON LUCAS</h1>
+
+      <!-- Botonera de navegación: Inicio · Volver · Voz -->
+      <div class="cabecera-acciones">
+        <button id="boton-inicio" class="boton-inicio" type="button" aria-label="Inicio">
+          <span aria-hidden="true">🏠</span>
+          <span class="texto-accion" data-i18n="inicio">Inicio</span>
+        </button>
+
+        <button id="boton-volver-top" class="boton-volver-top" type="button" aria-label="Volver" hidden>
+          <span aria-hidden="true">←</span>
+          <span class="texto-accion" data-i18n="volver">Volver</span>
+        </button>
+
+        <button id="boton-voz" class="boton-voz" type="button" aria-label="Activar o desactivar la voz">🔊</button>
+      </div>
+    </header>
+
+    <!-- ===== ESCENARIO: aquí viven todas las pantallas ===== -->
+    <main class="escenario" id="escenario">
+
+      <!-- ---------- PANTALLA 0: ELECCIÓN DE IDIOMA ---------- -->
+      <section id="pantalla-idioma" class="pantalla activa">
+
+        <p class="saludo saludo-marca" data-i18n="saludo">¡Vamos a aprender y jugar!</p>
+
+        <p class="saludo">
+          ¿Qué idioma quieres aprender?<br>
+          <span class="saludo-en">What language do you want to learn?</span>
+        </p>
+
+        <div class="menu menu-idioma">
+
+          <button id="boton-espanol" class="boton-idioma boton-espanol" type="button" data-idioma="es">
+            <span class="bandera" aria-hidden="true">🇪🇸</span>
+            <span class="etiqueta">ESPAÑOL</span>
+          </button>
+
+          <button id="boton-ingles" class="boton-idioma boton-ingles" type="button" data-idioma="en">
+            <span class="bandera" aria-hidden="true">🇺🇸</span>
+            <span class="etiqueta">ENGLISH</span>
+          </button>
+
+        </div>
+      </section>
+
+      <!-- ---------- PANTALLA 1: INICIO ---------- -->
+      <section id="pantalla-inicio" class="pantalla">
+        <p class="saludo" data-i18n="saludo">¡Vamos a aprender y jugar!</p>
+
+        <div class="mundo">
+
+          <div class="decor-mundo" aria-hidden="true">
+            <span class="nube n1"></span>
+            <span class="nube n2"></span>
+            <span class="nube n3"></span>
+            <span class="estrella-decor e1">⭐</span>
+            <span class="estrella-decor e2">✨</span>
+            <span class="estrella-decor e3">⭐</span>
+            <span class="arcoiris"></span>
+          </div>
+
+          <div class="grupo-mundo">
+            <p class="subtitulo-menu" data-i18n="grupoEtapas">📚 Aprender y jugar</p>
+
+        <div class="menu">
+
+          <button class="boton-menu boton-colores" type="button" data-ir="pantalla-colores-menu">
+            <span class="icono" aria-hidden="true">🎨</span>
+            <span class="etiqueta" data-i18n="menuColores">Colores</span>
+          </button>
+
+          <button class="boton-menu boton-numeros" type="button" data-ir="pantalla-numeros-menu">
+            <span class="icono" aria-hidden="true">🔢</span>
+            <span class="etiqueta" data-i18n="menuNumeros">Números</span>
+          </button>
+
+          <button class="boton-menu boton-formas" type="button" data-ir="pantalla-formas-menu">
+            <span class="icono" aria-hidden="true">🔺</span>
+            <span class="etiqueta" data-i18n="menuFormas">Formas</span>
+          </button>
+
+          <button class="boton-menu boton-animales" type="button" data-ir="pantalla-animales-menu">
+            <span class="icono" aria-hidden="true">🐶</span>
+            <span class="etiqueta" data-i18n="menuAnimales">Animales</span>
+          </button>
+
+          <button class="boton-menu boton-frutas" type="button" data-ir="pantalla-frutas-menu">
+            <span class="icono" aria-hidden="true">🍓</span>
+            <span class="etiqueta" data-i18n="menuFrutas">Frutas</span>
+          </button>
+
+          <button class="boton-menu boton-vehiculos" type="button" data-ir="pantalla-vehiculos-menu">
+            <span class="icono" aria-hidden="true">🚗</span>
+            <span class="etiqueta" data-i18n="menuVehiculos">Vehículos</span>
+          </button>
+
+          <button class="boton-menu boton-cuerpo" type="button" data-ir="pantalla-cuerpo-menu">
+            <span class="icono" aria-hidden="true">🧍</span>
+            <span class="etiqueta" data-i18n="menuCuerpo">Cuerpo</span>
+          </button>
+
+          <button class="boton-menu boton-vocales" type="button" data-ir="pantalla-vocales-menu">
+            <span class="icono" aria-hidden="true">🔤</span>
+            <span class="etiqueta" data-i18n="menuVocales">Vocales</span>
+          </button>
+
+          <button class="boton-menu boton-alimentos" type="button" data-ir="pantalla-alimentos-menu">
+            <span class="icono" aria-hidden="true">🍽️</span>
+            <span class="etiqueta" data-i18n="menuAlimentos">Alimentos</span>
+          </button>
+
+          <button class="boton-menu boton-casa" type="button" data-ir="pantalla-casa-menu">
+            <span class="icono" aria-hidden="true">🏠</span>
+            <span class="etiqueta" data-i18n="menuCasa">Casa</span>
+          </button>
+
+          <button class="boton-menu boton-familia" type="button" data-ir="pantalla-familia-menu">
+            <span class="icono" aria-hidden="true">👨‍👩‍👧</span>
+            <span class="etiqueta" data-i18n="menuFamilia">Familia</span>
+          </button>
+
+          <button class="boton-menu boton-coloresobjetos" type="button" data-ir="pantalla-coloresobjetos-menu">
+            <span class="icono" aria-hidden="true">🎨</span>
+            <span class="etiqueta" data-i18n="menuColoresObjetos">Colores y objetos</span>
+          </button>
+
+          <button class="boton-menu boton-conceptos" type="button" data-ir="pantalla-conceptos-menu">
+            <span class="icono" aria-hidden="true">📐</span>
+            <span class="etiqueta" data-i18n="menuConceptos">Conceptos</span>
+          </button>
+
+          <button class="boton-menu boton-emociones" type="button" data-ir="pantalla-emociones-menu">
+            <span class="icono" aria-hidden="true">😀</span>
+            <span class="etiqueta" data-i18n="menuEmociones">Emociones</span>
+          </button>
+        </div>
+          </div>
+
+          <div class="grupo-mundo grupo-directos">
+            <p class="subtitulo-menu" data-i18n="grupoDirectos">🎮 Juegos directos</p>
+
+        <div class="menu">
+          <button class="boton-menu boton-contar" type="button" data-ir="pantalla-contar">
+              <span class="icono" aria-hidden="true">🍎</span>
+              <span class="etiqueta" data-i18n="menuContar">Contar</span>
+            </button>
+
+
+          <button class="boton-menu boton-laberintos" type="button" data-ir="pantalla-laberintos">
+            <span class="icono" aria-hidden="true">🌀</span>
+            <span class="etiqueta" data-i18n="menuLaberintos">Laberintos</span>
+          </button>
+
+          <button class="boton-menu boton-memoria" type="button" data-ir="pantalla-memoria">
+            <span class="icono" aria-hidden="true">🧠</span>
+            <span class="etiqueta" data-i18n="menuMemoria">Memoria</span>
+          </button>
+
+          <button class="boton-menu boton-dondevive" type="button" data-ir="pantalla-dondevive">
+            <span class="icono" aria-hidden="true">🐾</span>
+            <span class="etiqueta" data-i18n="menuDondeVive">¿Dónde vive?</span>
+          </button>
+
+          <button class="boton-menu boton-quesonido" type="button" data-ir="pantalla-quesonido">
+            <span class="icono" aria-hidden="true">🔊</span>
+            <span class="etiqueta" data-i18n="menuQueSonido">¿Qué sonido es?</span>
+          </button>
+        </div>
+          </div>
+
+        </div>
+
+</section>
+
+      <!-- ---------- PANTALLA 2: COLORES ---------- -->
+      <!-- ---------- MÓDULO Colores: elegir etapa ---------- -->
+      <section id="pantalla-colores-menu" class="pantalla">
+
+        <p class="emoji-modulo" aria-hidden="true">🎨</p>
+        <h2 class="titulo-seccion titulo-modulo" data-i18n="tituloColores">Colores</h2>
+
+        <div class="menu-etapas">
+
+          <button class="boton-etapa boton-aprender" type="button" data-ir="pantalla-colores-aprender">
+            <span class="icono" aria-hidden="true">📚</span>
+            <span class="etiqueta" data-i18n="aprender">APRENDER</span>
+          </button>
+
+          <button class="boton-etapa boton-jugar" type="button" data-ir="pantalla-colores">
+            <span class="icono" aria-hidden="true">🎮</span>
+            <span class="etiqueta" data-i18n="jugar">JUGAR</span>
+          </button>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-inicio">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- MÓDULO Colores: etapa 📚 APRENDER ---------- -->
+      <!-- ---------- MÓDULO LOS COLORES: etapa 📚 APRENDER (álbum) ---------- -->
+      <section id="pantalla-colores-aprender" class="pantalla">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloColores">LOS COLORES</h2>
+          <span class="etiqueta-etapa"><span aria-hidden="true">📚</span> <span data-i18n="aprender">APRENDER</span></span>
+          <span class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">👀</span>
+            <span id="aprender-colores-contador" class="marcador-numero">— / —</span>
+          </span>
+        </div>
+
+        <div id="zona-colores-aprender" class="zona-juego zona-aprender zona-album" data-modulo="colores">
+
+          <div class="aprender-grande">
+            <div id="aprender-colores-grande" class="aprender-cuadro"></div>
+            <p id="aprender-colores-nombre" class="aprender-nombre">Toca un color</p>
+            <button id="aprender-colores-escuchar" class="boton-escuchar apagado" type="button">
+              <span aria-hidden="true">🔊</span> <span data-i18n="escucharNombre">Escuchar el nombre</span>
+            </button>
+
+            <button id="aprender-colores-categorias" class="album-categorias" type="button" hidden>
+              <span aria-hidden="true">🎨</span> <span data-i18n="volverCategorias">Categorías</span>
+            </button>
+
+          </div>
+
+          <div id="aprender-colores-lista" class="aprender-lista album-pista"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-colores-menu">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <section id="pantalla-colores" class="pantalla pantalla-juego">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloColores">LOS COLORES</h2>
+          <span class="etiqueta-etapa"><span aria-hidden="true">🎮</span> <span data-i18n="jugar">JUGAR</span></span>
+
+          <!-- Contador de aciertos -->
+          <div class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">⭐</span>
+            <span id="marcador-aciertos" class="marcador-numero">0</span>
+          </div>
+        </div>
+
+        <!-- Contenido del juego de colores (lo controla app.js) -->
+        <div id="zona-colores" class="zona-juego zona-colores" data-modulo="colores">
+
+          <!-- Color objetivo: hay que encontrar el botón del mismo color -->
+          <div class="pregunta">
+            <button id="color-objetivo" class="color-objetivo" type="button"
+                    aria-label="Escuchar otra vez el nombre del color">
+              <span class="color-objetivo-altavoz" aria-hidden="true">🔊</span>
+            </button>
+            <p id="nombre-color" class="nombre-color">…</p>
+          </div>
+
+          <!-- Aquí se generan las 3 opciones de color -->
+          <div id="opciones-colores" class="opciones-colores"></div>
+
+          <!-- Mensaje amable: ánimo o celebración -->
+          <p id="aviso-colores" class="aviso-colores" aria-live="polite"></p>
+
+          <!-- Capa donde aparecen las estrellas de la celebración -->
+          <div id="fiesta-colores" class="fiesta" aria-hidden="true"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-colores-menu">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- PANTALLA 3: NÚMEROS ---------- -->
+      <!-- ---------- MÓDULO Números: elegir etapa ---------- -->
+      <section id="pantalla-numeros-menu" class="pantalla">
+
+        <p class="emoji-modulo" aria-hidden="true">🔢</p>
+        <h2 class="titulo-seccion titulo-modulo" data-i18n="tituloNumeros">Números</h2>
+
+        <div class="menu-etapas">
+
+          <button class="boton-etapa boton-aprender" type="button" data-ir="pantalla-numeros-aprender">
+            <span class="icono" aria-hidden="true">📚</span>
+            <span class="etiqueta" data-i18n="aprender">APRENDER</span>
+          </button>
+
+          <button class="boton-etapa boton-jugar" type="button" data-ir="pantalla-numeros">
+            <span class="icono" aria-hidden="true">🎮</span>
+            <span class="etiqueta" data-i18n="jugar">JUGAR</span>
+          </button>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-inicio">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- MÓDULO Números: etapa 📚 APRENDER ---------- -->
+      <!-- ---------- MÓDULO LOS NÚMEROS: etapa 📚 APRENDER (álbum) ---------- -->
+      <section id="pantalla-numeros-aprender" class="pantalla">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloNumeros">LOS NÚMEROS</h2>
+          <span class="etiqueta-etapa"><span aria-hidden="true">📚</span> <span data-i18n="aprender">APRENDER</span></span>
+          <span class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">👀</span>
+            <span id="aprender-numeros-contador" class="marcador-numero">— / —</span>
+          </span>
+        </div>
+
+        <div id="zona-numeros-aprender" class="zona-juego zona-aprender zona-album" data-modulo="numeros">
+
+          <div class="aprender-grande">
+            <div id="aprender-numeros-grande" class="aprender-cuadro"></div>
+            <p id="aprender-numeros-nombre" class="aprender-nombre">Toca un número</p>
+            <button id="aprender-numeros-escuchar" class="boton-escuchar apagado" type="button">
+              <span aria-hidden="true">🔊</span> <span data-i18n="escucharNombre">Escuchar el nombre</span>
+            </button>
+
+          </div>
+
+          <div id="aprender-numeros-lista" class="aprender-lista album-pista"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-numeros-menu">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <section id="pantalla-numeros" class="pantalla pantalla-juego">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloNumeros">LOS NÚMEROS</h2>
+          <span class="etiqueta-etapa"><span aria-hidden="true">🎮</span> <span data-i18n="jugar">JUGAR</span></span>
+
+          <!-- Contador de aciertos -->
+          <div class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">⭐</span>
+            <span id="marcador-numeros" class="marcador-numero">0</span>
+          </div>
+        </div>
+
+        <!-- Contenido del juego de números (lo controla app.js) -->
+        <div id="zona-numeros" class="zona-juego zona-numeros" data-modulo="numeros">
+
+          <!-- Número objetivo: hay que encontrar el botón con el mismo número -->
+          <div class="pregunta">
+            <button id="numero-objetivo" class="numero-objetivo" type="button"
+                    aria-label="Escuchar otra vez el número">
+              <span id="numero-grande" class="numero-grande">1</span>
+              <span class="altavoz" aria-hidden="true">🔊</span>
+            </button>
+            <p id="nombre-numero" class="nombre-numero">…</p>
+          </div>
+
+          <!-- Aquí se generan las 3 opciones de número -->
+          <div id="opciones-numeros" class="opciones-numeros"></div>
+
+          <!-- Mensaje amable: ánimo o celebración -->
+          <p id="aviso-numeros" class="aviso-juego" aria-live="polite"></p>
+
+          <!-- Capa donde aparecen las estrellas de la celebración -->
+          <div id="fiesta-numeros" class="fiesta" aria-hidden="true"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-numeros-menu">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- PANTALLA 4: FORMAS ---------- -->
+      <!-- ---------- MÓDULO Formas: elegir etapa ---------- -->
+      <section id="pantalla-formas-menu" class="pantalla">
+
+        <p class="emoji-modulo" aria-hidden="true">🔺</p>
+        <h2 class="titulo-seccion titulo-modulo" data-i18n="tituloFormas">Formas</h2>
+
+        <div class="menu-etapas">
+
+          <button class="boton-etapa boton-aprender" type="button" data-ir="pantalla-formas-aprender">
+            <span class="icono" aria-hidden="true">📚</span>
+            <span class="etiqueta" data-i18n="aprender">APRENDER</span>
+          </button>
+
+          <button class="boton-etapa boton-jugar" type="button" data-ir="pantalla-formas">
+            <span class="icono" aria-hidden="true">🎮</span>
+            <span class="etiqueta" data-i18n="jugar">JUGAR</span>
+          </button>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-inicio">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- MÓDULO Formas: etapa 📚 APRENDER ---------- -->
+      <!-- ---------- MÓDULO LAS FORMAS: etapa 📚 APRENDER (álbum) ---------- -->
+      <section id="pantalla-formas-aprender" class="pantalla">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloFormas">LAS FORMAS</h2>
+          <span class="etiqueta-etapa"><span aria-hidden="true">📚</span> <span data-i18n="aprender">APRENDER</span></span>
+          <span class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">👀</span>
+            <span id="aprender-formas-contador" class="marcador-numero">— / —</span>
+          </span>
+        </div>
+
+        <div id="zona-formas-aprender" class="zona-juego zona-aprender zona-album" data-modulo="formas">
+
+          <div class="aprender-grande">
+            <div id="aprender-formas-grande" class="aprender-cuadro"></div>
+            <p id="aprender-formas-nombre" class="aprender-nombre">Toca una forma</p>
+            <button id="aprender-formas-escuchar" class="boton-escuchar apagado" type="button">
+              <span aria-hidden="true">🔊</span> <span data-i18n="escucharNombre">Escuchar el nombre</span>
+            </button>
+
+          </div>
+
+          <div id="aprender-formas-lista" class="aprender-lista album-pista"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-formas-menu">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <section id="pantalla-formas" class="pantalla pantalla-juego">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloFormas">LAS FORMAS</h2>
+          <span class="etiqueta-etapa"><span aria-hidden="true">🎮</span> <span data-i18n="jugar">JUGAR</span></span>
+
+          <!-- Contador de aciertos -->
+          <div class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">⭐</span>
+            <span id="marcador-formas" class="marcador-numero">0</span>
+          </div>
+        </div>
+
+        <!-- Contenido del juego de formas (lo controla app.js) -->
+        <div id="zona-formas" class="zona-juego zona-formas" data-modulo="formas">
+
+          <!-- Forma objetivo: hay que encontrar el botón con la misma forma -->
+          <div class="pregunta">
+            <button id="forma-objetivo" class="forma-objetivo" type="button"
+                    aria-label="Escuchar otra vez el nombre de la forma">
+              <span id="forma-grande" class="forma forma-circulo"></span>
+              <span class="altavoz" aria-hidden="true">🔊</span>
+            </button>
+            <p id="nombre-forma" class="nombre-forma">…</p>
+          </div>
+
+          <!-- Aquí se generan las 3 formas para elegir -->
+          <div id="opciones-formas" class="opciones-formas"></div>
+
+          <!-- Mensaje amable: ánimo o celebración -->
+          <p id="aviso-formas" class="aviso-juego" aria-live="polite"></p>
+
+          <!-- Capa donde aparecen las estrellas de la celebración -->
+          <div id="fiesta-formas" class="fiesta" aria-hidden="true"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-formas-menu">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- PANTALLA 5: CONTAR OBJETOS ---------- -->
+      <!-- ---------- MÓDULO Contar: etapa 📚 APRENDER ---------- -->
+      <section id="pantalla-contar" class="pantalla pantalla-juego">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloContar">CONTAR OBJETOS</h2>
+          <span class="etiqueta-etapa"><span aria-hidden="true">🎮</span> <span data-i18n="jugar">JUGAR</span></span>
+
+          <!-- Contador de aciertos -->
+          <div class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">⭐</span>
+            <span id="marcador-contar" class="marcador-numero">0</span>
+          </div>
+        </div>
+
+        <!-- Contenido del juego de contar (lo controla app.js) -->
+        <div id="zona-contar" class="zona-juego zona-contar" data-modulo="contar">
+
+          <!-- Colección de objetos que hay que contar -->
+          <div class="pregunta">
+            <button id="cantidad-objetivo" class="cantidad-objetivo" type="button"
+                    aria-label="Escuchar otra vez la pregunta">
+              <span id="objetos-cantidad" class="objetos"></span>
+              <span class="altavoz" aria-hidden="true">🔊</span>
+            </button>
+            <p id="nombre-cantidad" class="pregunta-texto">¿Cuántos hay?</p>
+          </div>
+
+          <!-- Aquí se generan las 3 opciones de número -->
+          <div id="opciones-cantidad" class="opciones-cantidad"></div>
+
+          <!-- Mensaje amable: ánimo o celebración -->
+          <p id="aviso-contar" class="aviso-juego" aria-live="polite"></p>
+
+          <!-- Capa donde aparecen las estrellas de la celebración -->
+          <div id="fiesta-contar" class="fiesta" aria-hidden="true"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-inicio">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- PANTALLA 6: ANIMALES ---------- -->
+      <!-- ---------- MÓDULO Animales: elegir etapa ---------- -->
+      <section id="pantalla-animales-menu" class="pantalla">
+
+        <p class="emoji-modulo" aria-hidden="true">🐶</p>
+        <h2 class="titulo-seccion titulo-modulo" data-i18n="tituloAnimales">Animales</h2>
+
+        <div class="menu-etapas">
+
+          <button class="boton-etapa boton-aprender" type="button" data-ir="pantalla-animales-aprender">
+            <span class="icono" aria-hidden="true">📚</span>
+            <span class="etiqueta" data-i18n="aprender">APRENDER</span>
+          </button>
+
+          <button class="boton-etapa boton-jugar" type="button" data-ir="pantalla-animales">
+            <span class="icono" aria-hidden="true">🎮</span>
+            <span class="etiqueta" data-i18n="jugar">JUGAR</span>
+          </button>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-inicio">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- MÓDULO Animales: etapa 📚 APRENDER ---------- -->
+      <!-- ---------- MÓDULO LOS ANIMALES: etapa 📚 APRENDER (álbum) ---------- -->
+      <section id="pantalla-animales-aprender" class="pantalla">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloAnimales">LOS ANIMALES</h2>
+          <span class="etiqueta-etapa"><span aria-hidden="true">📚</span> <span data-i18n="aprender">APRENDER</span></span>
+          <span class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">👀</span>
+            <span id="aprender-animales-contador" class="marcador-numero">— / —</span>
+          </span>
+        </div>
+
+        <div id="zona-animales-aprender" class="zona-juego zona-aprender zona-album" data-modulo="animales">
+
+          <div class="aprender-grande">
+            <div id="aprender-animales-grande" class="aprender-cuadro"></div>
+            <p id="aprender-animales-nombre" class="aprender-nombre">Toca un animal</p>
+            <button id="aprender-animales-escuchar" class="boton-escuchar apagado" type="button">
+              <span aria-hidden="true">🔊</span> <span data-i18n="escucharNombre">Escuchar el nombre</span>
+            </button>
+
+          </div>
+
+          <div id="aprender-animales-lista" class="aprender-lista album-pista"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-animales-menu">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <section id="pantalla-animales" class="pantalla pantalla-juego">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloAnimales">LOS ANIMALES</h2>
+          <span class="etiqueta-etapa"><span aria-hidden="true">🎮</span> <span data-i18n="jugar">JUGAR</span></span>
+
+          <!-- Contador de aciertos -->
+          <div class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">⭐</span>
+            <span id="marcador-animales" class="marcador-numero">0</span>
+          </div>
+        </div>
+
+        <!-- Contenido del juego de animales (lo controla app.js) -->
+        <div id="zona-animales" class="zona-juego zona-animales" data-modulo="animales">
+
+          <!-- Animal objetivo: hay que encontrar el botón del mismo animal -->
+          <div class="pregunta">
+            <button id="animal-objetivo" class="animal-objetivo" type="button"
+                    aria-label="Escuchar otra vez la pregunta">
+              <span id="animal-grande" class="animal-grande">🐶</span>
+              <span class="altavoz" aria-hidden="true">🔊</span>
+            </button>
+            <p id="nombre-animal" class="pregunta-texto">¿Qué animal es?</p>
+          </div>
+
+          <!-- Aquí se generan las 3 opciones de animal -->
+          <div id="opciones-animales" class="opciones-animales"></div>
+
+          <!-- Mensaje amable: ánimo o celebración -->
+          <p id="aviso-animales" class="aviso-juego" aria-live="polite"></p>
+
+          <!-- Capa donde aparecen las estrellas de la celebración -->
+          <div id="fiesta-animales" class="fiesta" aria-hidden="true"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-animales-menu">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- PANTALLA 7: FRUTAS ---------- -->
+      <!-- ---------- MÓDULO Frutas: elegir etapa ---------- -->
+      <section id="pantalla-frutas-menu" class="pantalla">
+
+        <p class="emoji-modulo" aria-hidden="true">🍓</p>
+        <h2 class="titulo-seccion titulo-modulo" data-i18n="tituloFrutas">Frutas</h2>
+
+        <div class="menu-etapas">
+
+          <button class="boton-etapa boton-aprender" type="button" data-ir="pantalla-frutas-aprender">
+            <span class="icono" aria-hidden="true">📚</span>
+            <span class="etiqueta" data-i18n="aprender">APRENDER</span>
+          </button>
+
+          <button class="boton-etapa boton-jugar" type="button" data-ir="pantalla-frutas">
+            <span class="icono" aria-hidden="true">🎮</span>
+            <span class="etiqueta" data-i18n="jugar">JUGAR</span>
+          </button>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-inicio">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- MÓDULO Frutas: etapa 📚 APRENDER ---------- -->
+      <!-- ---------- MÓDULO LAS FRUTAS: etapa 📚 APRENDER (álbum) ---------- -->
+      <section id="pantalla-frutas-aprender" class="pantalla">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloFrutas">LAS FRUTAS</h2>
+          <span class="etiqueta-etapa"><span aria-hidden="true">📚</span> <span data-i18n="aprender">APRENDER</span></span>
+          <span class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">👀</span>
+            <span id="aprender-frutas-contador" class="marcador-numero">— / —</span>
+          </span>
+        </div>
+
+        <div id="zona-frutas-aprender" class="zona-juego zona-aprender zona-album" data-modulo="frutas">
+
+          <div class="aprender-grande">
+            <div id="aprender-frutas-grande" class="aprender-cuadro"></div>
+            <p id="aprender-frutas-nombre" class="aprender-nombre">Toca una fruta</p>
+            <button id="aprender-frutas-escuchar" class="boton-escuchar apagado" type="button">
+              <span aria-hidden="true">🔊</span> <span data-i18n="escucharNombre">Escuchar el nombre</span>
+            </button>
+
+          </div>
+
+          <div id="aprender-frutas-lista" class="aprender-lista album-pista"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-frutas-menu">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <section id="pantalla-frutas" class="pantalla pantalla-juego">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloFrutas">LAS FRUTAS</h2>
+          <span class="etiqueta-etapa"><span aria-hidden="true">🎮</span> <span data-i18n="jugar">JUGAR</span></span>
+
+          <!-- Contador de aciertos -->
+          <div class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">⭐</span>
+            <span id="marcador-frutas" class="marcador-numero">0</span>
+          </div>
+        </div>
+
+        <!-- Contenido del juego de frutas (lo controla app.js) -->
+        <div id="zona-frutas" class="zona-juego zona-frutas" data-modulo="frutas">
+
+          <!-- Fruta objetivo: hay que encontrar el botón de la misma fruta -->
+          <div class="pregunta">
+            <button id="fruta-objetivo" class="fruta-objetivo" type="button"
+                    aria-label="Escuchar otra vez la pregunta">
+              <span id="fruta-grande" class="fruta-grande">🍎</span>
+            </button>
+            <p id="nombre-fruta" class="pregunta-texto">¿Qué fruta es?</p>
+          </div>
+
+          <!-- Aquí se generan las 3 opciones de fruta -->
+          <div id="opciones-frutas" class="opciones-frutas"></div>
+
+          <!-- Mensaje amable: ánimo o celebración -->
+          <p id="aviso-frutas" class="aviso-juego" aria-live="polite"></p>
+
+          <!-- Capa donde aparecen las estrellas de la celebración -->
+          <div id="fiesta-frutas" class="fiesta" aria-hidden="true"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-frutas-menu">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- PANTALLA: {TITULO} ---------- -->
+      <!-- ---------- MÓDULO LOS VEHÍCULOS: elegir etapa ---------- -->
+      <section id="pantalla-vehiculos-menu" class="pantalla">
+
+        <p class="emoji-modulo" aria-hidden="true">🚗</p>
+        <h2 class="titulo-seccion titulo-modulo" data-i18n="tituloVehiculos">LOS VEHÍCULOS</h2>
+
+        <div class="menu-etapas">
+
+          <button class="boton-etapa boton-aprender" type="button" data-ir="pantalla-vehiculos-aprender">
+            <span class="icono" aria-hidden="true">📚</span>
+            <span class="etiqueta" data-i18n="aprender">APRENDER</span>
+          </button>
+
+          <button class="boton-etapa boton-jugar" type="button" data-ir="pantalla-vehiculos">
+            <span class="icono" aria-hidden="true">🎮</span>
+            <span class="etiqueta" data-i18n="jugar">JUGAR</span>
+          </button>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-inicio">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- MÓDULO LOS VEHÍCULOS: etapa 📚 APRENDER ---------- -->
+      <!-- ---------- MÓDULO LOS VEHÍCULOS: etapa 📚 APRENDER (álbum) ---------- -->
+      <section id="pantalla-vehiculos-aprender" class="pantalla">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloVehiculos">LOS VEHÍCULOS</h2>
+          <span class="etiqueta-etapa"><span aria-hidden="true">📚</span> <span data-i18n="aprender">APRENDER</span></span>
+          <span class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">👀</span>
+            <span id="aprender-vehiculos-contador" class="marcador-numero">— / —</span>
+          </span>
+        </div>
+
+        <div id="zona-vehiculos-aprender" class="zona-juego zona-aprender zona-album" data-modulo="vehiculos">
+
+          <div class="aprender-grande">
+            <div id="aprender-vehiculos-grande" class="aprender-cuadro"></div>
+            <p id="aprender-vehiculos-nombre" class="aprender-nombre">Toca un vehículo</p>
+            <button id="aprender-vehiculos-escuchar" class="boton-escuchar apagado" type="button">
+              <span aria-hidden="true">🔊</span> <span data-i18n="escucharNombre">Escuchar el nombre</span>
+            </button>
+
+          </div>
+
+          <div id="aprender-vehiculos-lista" class="aprender-lista album-pista"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-vehiculos-menu">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <section id="pantalla-vehiculos" class="pantalla pantalla-juego">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloVehiculos">LOS VEHÍCULOS</h2>
+          <span class="etiqueta-etapa"><span aria-hidden="true">🎮</span> <span data-i18n="jugar">JUGAR</span></span>
+
+          <div class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">⭐</span>
+            <span id="marcador-vehiculos" class="marcador-numero">0</span>
+          </div>
+        </div>
+
+        <div id="zona-vehiculos" class="zona-juego zona-vehiculos" data-modulo="vehiculos">
+
+          <div class="pregunta">
+            <button id="vehiculos-objetivo" class="objetivo-juego" type="button"
+                    aria-label="Escuchar otra vez la pregunta">
+              <span id="vehiculos-grande" class="dibujo-grande">🚗</span>
+            </button>
+            <p id="nombre-vehiculos" class="pregunta-texto">¿Qué vehículo es?</p>
+          </div>
+
+          <div id="opciones-vehiculos" class="opciones-juego"></div>
+
+          <p id="aviso-vehiculos" class="aviso-juego" aria-live="polite"></p>
+
+          <div id="fiesta-vehiculos" class="fiesta" aria-hidden="true"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-vehiculos-menu">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- PANTALLA: {TITULO} ---------- -->
+      <!-- ---------- MÓDULO EL CUERPO: elegir etapa ---------- -->
+      <section id="pantalla-cuerpo-menu" class="pantalla">
+
+        <p class="emoji-modulo" aria-hidden="true">🧍</p>
+        <h2 class="titulo-seccion titulo-modulo" data-i18n="tituloCuerpo">EL CUERPO</h2>
+
+        <div class="menu-etapas">
+
+          <button class="boton-etapa boton-aprender" type="button" data-ir="pantalla-cuerpo-aprender">
+            <span class="icono" aria-hidden="true">📚</span>
+            <span class="etiqueta" data-i18n="aprender">APRENDER</span>
+          </button>
+
+          <button class="boton-etapa boton-jugar" type="button" data-ir="pantalla-cuerpo">
+            <span class="icono" aria-hidden="true">🎮</span>
+            <span class="etiqueta" data-i18n="jugar">JUGAR</span>
+          </button>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-inicio">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- MÓDULO EL CUERPO: etapa 📚 APRENDER ---------- -->
+      <!-- ---------- MÓDULO EL CUERPO: etapa 📚 APRENDER (álbum) ---------- -->
+      <section id="pantalla-cuerpo-aprender" class="pantalla">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloCuerpo">EL CUERPO</h2>
+          <span class="etiqueta-etapa"><span aria-hidden="true">📚</span> <span data-i18n="aprender">APRENDER</span></span>
+          <span class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">👀</span>
+            <span id="aprender-cuerpo-contador" class="marcador-numero">— / —</span>
+          </span>
+        </div>
+
+        <div id="zona-cuerpo-aprender" class="zona-juego zona-aprender zona-album" data-modulo="cuerpo">
+
+          <div class="aprender-grande">
+            <div id="aprender-cuerpo-grande" class="aprender-cuadro"></div>
+            <p id="aprender-cuerpo-nombre" class="aprender-nombre">Toca una parte del cuerpo</p>
+            <button id="aprender-cuerpo-escuchar" class="boton-escuchar apagado" type="button">
+              <span aria-hidden="true">🔊</span> <span data-i18n="escucharNombre">Escuchar el nombre</span>
+            </button>
+
+          </div>
+
+
+          <div id="aprender-cuerpo-lista" class="aprender-lista album-pista"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-cuerpo-menu">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <section id="pantalla-cuerpo" class="pantalla pantalla-juego">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloCuerpo">EL CUERPO</h2>
+          <span class="etiqueta-etapa"><span aria-hidden="true">🎮</span> <span data-i18n="jugar">JUGAR</span></span>
+
+          <div class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">⭐</span>
+            <span id="marcador-cuerpo" class="marcador-numero">0</span>
+          </div>
+        </div>
+
+        <div id="zona-cuerpo" class="zona-juego zona-cuerpo" data-modulo="cuerpo">
+
+          <div class="pregunta">
+            <button id="cuerpo-objetivo" class="objetivo-juego" type="button"
+                    aria-label="Escuchar otra vez la pregunta">
+              <img id="cuerpo-grande" class="dibujo-imagen-grande" src="" alt="">
+            </button>
+            <p id="nombre-cuerpo" class="pregunta-texto">¿Qué parte del cuerpo es?</p>
+          </div>
+
+          <div id="opciones-cuerpo" class="opciones-juego"></div>
+
+          <p id="aviso-cuerpo" class="aviso-juego" aria-live="polite"></p>
+
+          <div id="fiesta-cuerpo" class="fiesta" aria-hidden="true"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-cuerpo-menu">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- PANTALLA: {TITULO} ---------- -->
+      <!-- ---------- MÓDULO LAS VOCALES: elegir etapa ---------- -->
+      <section id="pantalla-vocales-menu" class="pantalla">
+
+        <p class="emoji-modulo" aria-hidden="true">🔤</p>
+        <h2 class="titulo-seccion titulo-modulo" data-i18n="tituloVocales">LAS VOCALES</h2>
+
+        <div class="menu-etapas">
+
+          <button class="boton-etapa boton-aprender" type="button" data-ir="pantalla-vocales-aprender">
+            <span class="icono" aria-hidden="true">📚</span>
+            <span class="etiqueta" data-i18n="aprender">APRENDER</span>
+          </button>
+
+          <button class="boton-etapa boton-jugar" type="button" data-ir="pantalla-vocales">
+            <span class="icono" aria-hidden="true">🎮</span>
+            <span class="etiqueta" data-i18n="jugar">JUGAR</span>
+          </button>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-inicio">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- MÓDULO LAS VOCALES: etapa 📚 APRENDER ---------- -->
+      <!-- ---------- MÓDULO LAS VOCALES: etapa 📚 APRENDER (álbum) ---------- -->
+      <section id="pantalla-vocales-aprender" class="pantalla">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloVocales">LAS VOCALES</h2>
+          <span class="etiqueta-etapa"><span aria-hidden="true">📚</span> <span data-i18n="aprender">APRENDER</span></span>
+          <span class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">👀</span>
+            <span id="aprender-vocales-contador" class="marcador-numero">— / —</span>
+          </span>
+        </div>
+
+        <div id="zona-vocales-aprender" class="zona-juego zona-aprender zona-album" data-modulo="vocales">
+
+          <div class="aprender-grande">
+            <div id="aprender-vocales-grande" class="aprender-cuadro"></div>
+            <p id="aprender-vocales-nombre" class="aprender-nombre">Toca una vocal</p>
+            <button id="aprender-vocales-escuchar" class="boton-escuchar apagado" type="button">
+              <span aria-hidden="true">🔊</span> <span data-i18n="escucharNombre">Escuchar el nombre</span>
+            </button>
+
+          </div>
+
+          <div id="aprender-vocales-lista" class="aprender-lista album-pista"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-vocales-menu">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <section id="pantalla-vocales" class="pantalla pantalla-juego">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloVocales">LAS VOCALES</h2>
+          <span class="etiqueta-etapa"><span aria-hidden="true">🎮</span> <span data-i18n="jugar">JUGAR</span></span>
+
+          <div class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">⭐</span>
+            <span id="marcador-vocales" class="marcador-numero">0</span>
+          </div>
+        </div>
+
+        <div id="zona-vocales" class="zona-juego zona-vocales" data-modulo="vocales">
+
+          <div class="pregunta">
+            <button id="vocales-objetivo" class="objetivo-juego" type="button"
+                    aria-label="Escuchar otra vez la pregunta">
+              <span id="vocales-grande" class="dibujo-letra-grande">A</span>
+            </button>
+            <p id="nombre-vocales" class="pregunta-texto">¿Qué vocal es?</p>
+          </div>
+
+          <div id="opciones-vocales" class="opciones-juego"></div>
+
+          <p id="aviso-vocales" class="aviso-juego" aria-live="polite"></p>
+
+          <div id="fiesta-vocales" class="fiesta" aria-hidden="true"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-vocales-menu">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- PANTALLA: {TITULO} ---------- -->
+      <!-- ---------- MÓDULO LOS ALIMENTOS: elegir etapa ---------- -->
+      <section id="pantalla-alimentos-menu" class="pantalla">
+
+        <p class="emoji-modulo" aria-hidden="true">🍽️</p>
+        <h2 class="titulo-seccion titulo-modulo" data-i18n="tituloAlimentos">LOS ALIMENTOS</h2>
+
+        <div class="menu-etapas">
+
+          <button class="boton-etapa boton-aprender" type="button" data-ir="pantalla-alimentos-aprender">
+            <span class="icono" aria-hidden="true">📚</span>
+            <span class="etiqueta" data-i18n="aprender">APRENDER</span>
+          </button>
+
+          <button class="boton-etapa boton-jugar" type="button" data-ir="pantalla-alimentos">
+            <span class="icono" aria-hidden="true">🎮</span>
+            <span class="etiqueta" data-i18n="jugar">JUGAR</span>
+          </button>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-inicio">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- MÓDULO LOS ALIMENTOS: etapa 📚 APRENDER ---------- -->
+      <!-- ---------- MÓDULO LOS ALIMENTOS: etapa 📚 APRENDER (álbum) ---------- -->
+      <section id="pantalla-alimentos-aprender" class="pantalla">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloAlimentos">LOS ALIMENTOS</h2>
+          <span class="etiqueta-etapa"><span aria-hidden="true">📚</span> <span data-i18n="aprender">APRENDER</span></span>
+          <span class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">👀</span>
+            <span id="aprender-alimentos-contador" class="marcador-numero">— / —</span>
+          </span>
+        </div>
+
+        <div id="zona-alimentos-aprender" class="zona-juego zona-aprender zona-album" data-modulo="alimentos">
+
+          <div class="aprender-grande">
+            <div id="aprender-alimentos-grande" class="aprender-cuadro"></div>
+            <p id="aprender-alimentos-nombre" class="aprender-nombre">Toca un alimento</p>
+            <button id="aprender-alimentos-escuchar" class="boton-escuchar apagado" type="button">
+              <span aria-hidden="true">🔊</span> <span data-i18n="escucharNombre">Escuchar el nombre</span>
+            </button>
+
+          </div>
+
+          <div id="aprender-alimentos-lista" class="aprender-lista album-pista"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-alimentos-menu">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <section id="pantalla-alimentos" class="pantalla pantalla-juego">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloAlimentos">LOS ALIMENTOS</h2>
+          <span class="etiqueta-etapa"><span aria-hidden="true">🎮</span> <span data-i18n="jugar">JUGAR</span></span>
+
+          <div class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">⭐</span>
+            <span id="marcador-alimentos" class="marcador-numero">0</span>
+          </div>
+        </div>
+
+        <div id="zona-alimentos" class="zona-juego zona-alimentos" data-modulo="alimentos">
+
+          <div class="pregunta">
+            <button id="alimentos-objetivo" class="objetivo-juego" type="button"
+                    aria-label="Escuchar otra vez la pregunta">
+              <span id="alimentos-grande" class="dibujo-grande">🍞</span>
+            </button>
+            <p id="nombre-alimentos" class="pregunta-texto">¿Qué alimento es?</p>
+          </div>
+
+          <div id="opciones-alimentos" class="opciones-juego"></div>
+
+          <p id="aviso-alimentos" class="aviso-juego" aria-live="polite"></p>
+
+          <div id="fiesta-alimentos" class="fiesta" aria-hidden="true"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-alimentos-menu">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- PANTALLA: {TITULO} ---------- -->
+      <!-- ---------- MÓDULO LA CASA: elegir etapa ---------- -->
+      <section id="pantalla-casa-menu" class="pantalla">
+
+        <p class="emoji-modulo" aria-hidden="true">🏠</p>
+        <h2 class="titulo-seccion titulo-modulo" data-i18n="tituloCasa">LA CASA</h2>
+
+        <div class="menu-etapas">
+
+          <button class="boton-etapa boton-aprender" type="button" data-ir="pantalla-casa-aprender">
+            <span class="icono" aria-hidden="true">📚</span>
+            <span class="etiqueta" data-i18n="aprender">APRENDER</span>
+          </button>
+
+          <button class="boton-etapa boton-jugar" type="button" data-ir="pantalla-casa">
+            <span class="icono" aria-hidden="true">🎮</span>
+            <span class="etiqueta" data-i18n="jugar">JUGAR</span>
+          </button>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-inicio">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- MÓDULO LA CASA: etapa 📚 APRENDER ---------- -->
+      <!-- ---------- MÓDULO LA CASA: etapa 📚 APRENDER (álbum) ---------- -->
+      <section id="pantalla-casa-aprender" class="pantalla">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloCasa">LA CASA</h2>
+          <span class="etiqueta-etapa"><span aria-hidden="true">📚</span> <span data-i18n="aprender">APRENDER</span></span>
+          <span class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">👀</span>
+            <span id="aprender-casa-contador" class="marcador-numero">— / —</span>
+          </span>
+        </div>
+
+        <div id="zona-casa-aprender" class="zona-juego zona-aprender zona-album" data-modulo="casa">
+
+          <div class="aprender-grande">
+            <div id="aprender-casa-grande" class="aprender-cuadro"></div>
+            <p id="aprender-casa-nombre" class="aprender-nombre">Toca un objeto</p>
+            <button id="aprender-casa-escuchar" class="boton-escuchar apagado" type="button">
+              <span aria-hidden="true">🔊</span> <span data-i18n="escucharNombre">Escuchar el nombre</span>
+            </button>
+
+          </div>
+
+          <div id="aprender-casa-lista" class="aprender-lista album-pista"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-casa-menu">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <section id="pantalla-casa" class="pantalla pantalla-juego">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloCasa">LA CASA</h2>
+          <span class="etiqueta-etapa"><span aria-hidden="true">🎮</span> <span data-i18n="jugar">JUGAR</span></span>
+
+          <div class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">⭐</span>
+            <span id="marcador-casa" class="marcador-numero">0</span>
+          </div>
+        </div>
+
+        <div id="zona-casa" class="zona-juego zona-casa" data-modulo="casa">
+
+          <div class="pregunta">
+            <button id="casa-objetivo" class="objetivo-juego" type="button"
+                    aria-label="Escuchar otra vez la pregunta">
+              <span id="casa-grande" class="dibujo-grande">🛏️</span>
+            </button>
+            <p id="nombre-casa" class="pregunta-texto">¿Qué objeto de la casa es?</p>
+          </div>
+
+          <div id="opciones-casa" class="opciones-juego"></div>
+
+          <p id="aviso-casa" class="aviso-juego" aria-live="polite"></p>
+
+          <div id="fiesta-casa" class="fiesta" aria-hidden="true"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-casa-menu">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- PANTALLA: {TITULO} ---------- -->
+      <!-- ---------- MÓDULO LA FAMILIA: elegir etapa ---------- -->
+      <section id="pantalla-familia-menu" class="pantalla">
+
+        <p class="emoji-modulo" aria-hidden="true">👨‍👩‍👧</p>
+        <h2 class="titulo-seccion titulo-modulo" data-i18n="tituloFamilia">LA FAMILIA</h2>
+
+        <div class="menu-etapas">
+
+          <button class="boton-etapa boton-aprender" type="button" data-ir="pantalla-familia-aprender">
+            <span class="icono" aria-hidden="true">📚</span>
+            <span class="etiqueta" data-i18n="aprender">APRENDER</span>
+          </button>
+
+          <button class="boton-etapa boton-jugar" type="button" data-ir="pantalla-familia">
+            <span class="icono" aria-hidden="true">🎮</span>
+            <span class="etiqueta" data-i18n="jugar">JUGAR</span>
+          </button>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-inicio">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- MÓDULO LA FAMILIA: etapa 📚 APRENDER ---------- -->
+      <!-- ---------- MÓDULO LA FAMILIA: etapa 📚 APRENDER (álbum) ---------- -->
+      <section id="pantalla-familia-aprender" class="pantalla">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloFamilia">LA FAMILIA</h2>
+          <span class="etiqueta-etapa"><span aria-hidden="true">📚</span> <span data-i18n="aprender">APRENDER</span></span>
+          <span class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">👀</span>
+            <span id="aprender-familia-contador" class="marcador-numero">— / —</span>
+          </span>
+        </div>
+
+        <div id="zona-familia-aprender" class="zona-juego zona-aprender zona-album" data-modulo="familia">
+
+          <div class="aprender-grande">
+            <div id="aprender-familia-grande" class="aprender-cuadro"></div>
+            <p id="aprender-familia-nombre" class="aprender-nombre">Toca un miembro de la familia</p>
+            <button id="aprender-familia-escuchar" class="boton-escuchar apagado" type="button">
+              <span aria-hidden="true">🔊</span> <span data-i18n="escucharNombre">Escuchar el nombre</span>
+            </button>
+
+          </div>
+
+          <div id="aprender-familia-lista" class="aprender-lista album-pista"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-familia-menu">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <section id="pantalla-familia" class="pantalla pantalla-juego">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloFamilia">LA FAMILIA</h2>
+          <span class="etiqueta-etapa"><span aria-hidden="true">🎮</span> <span data-i18n="jugar">JUGAR</span></span>
+
+          <div class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">⭐</span>
+            <span id="marcador-familia" class="marcador-numero">0</span>
+          </div>
+        </div>
+
+        <div id="zona-familia" class="zona-juego zona-familia" data-modulo="familia">
+
+          <div class="pregunta">
+            <button id="familia-objetivo" class="objetivo-juego" type="button"
+                    aria-label="Escuchar otra vez la pregunta">
+              <span id="familia-grande" class="dibujo-grande">👨</span>
+            </button>
+            <p id="nombre-familia" class="pregunta-texto">¿Quién es?</p>
+          </div>
+
+          <div id="opciones-familia" class="opciones-juego"></div>
+
+          <p id="aviso-familia" class="aviso-juego" aria-live="polite"></p>
+
+          <div id="fiesta-familia" class="fiesta" aria-hidden="true"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-familia-menu">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- PANTALLA: {TITULO} ---------- -->
+      <!-- ---------- MÓDULO COLORES Y OBJETOS: elegir etapa ---------- -->
+      <section id="pantalla-coloresobjetos-menu" class="pantalla">
+
+        <p class="emoji-modulo" aria-hidden="true">🎨</p>
+        <h2 class="titulo-seccion titulo-modulo" data-i18n="tituloColoresObjetos">COLORES Y OBJETOS</h2>
+
+        <div class="menu-etapas">
+
+          <button class="boton-etapa boton-aprender" type="button" data-ir="pantalla-coloresobjetos-aprender">
+            <span class="icono" aria-hidden="true">📚</span>
+            <span class="etiqueta" data-i18n="aprender">APRENDER</span>
+          </button>
+
+          <button class="boton-etapa boton-jugar" type="button" data-ir="pantalla-coloresobjetos">
+            <span class="icono" aria-hidden="true">🎮</span>
+            <span class="etiqueta" data-i18n="jugar">JUGAR</span>
+          </button>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-inicio">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- MÓDULO COLORES Y OBJETOS: etapa 📚 APRENDER ---------- -->
+      <!-- ---------- MÓDULO COLORES Y OBJETOS: etapa 📚 APRENDER (álbum) ---------- -->
+      <section id="pantalla-coloresobjetos-aprender" class="pantalla">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloColoresObjetos">COLORES Y OBJETOS</h2>
+          <span class="etiqueta-etapa"><span aria-hidden="true">📚</span> <span data-i18n="aprender">APRENDER</span></span>
+          <span class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">👀</span>
+            <span id="aprender-coloresobjetos-contador" class="marcador-numero">— / —</span>
+          </span>
+        </div>
+
+        <div id="zona-coloresobjetos-aprender" class="zona-juego zona-aprender zona-album" data-modulo="coloresobjetos">
+
+          <div class="aprender-grande">
+            <div id="aprender-coloresobjetos-grande" class="aprender-cuadro"></div>
+            <p id="aprender-coloresobjetos-nombre" class="aprender-nombre">Toca un objeto</p>
+            <p id="aprender-coloresobjetos-extra" class="aprender-extra"></p>
+            <p id="aprender-coloresobjetos-extra" class="aprender-extra"></p>
+            <button id="aprender-coloresobjetos-escuchar" class="boton-escuchar apagado" type="button">
+              <span aria-hidden="true">🔊</span> <span data-i18n="escucharNombre">Escuchar el nombre</span>
+            </button>
+
+          </div>
+
+          <div id="aprender-coloresobjetos-lista" class="aprender-lista album-pista"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-coloresobjetos-menu">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <section id="pantalla-coloresobjetos" class="pantalla pantalla-juego">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloColoresObjetos">COLORES Y OBJETOS</h2>
+          <span class="etiqueta-etapa"><span aria-hidden="true">🎮</span> <span data-i18n="jugar">JUGAR</span></span>
+
+          <div class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">⭐</span>
+            <span id="marcador-coloresobjetos" class="marcador-numero">0</span>
+          </div>
+        </div>
+
+        <div id="zona-coloresobjetos" class="zona-juego zona-coloresobjetos" data-modulo="coloresobjetos">
+
+          <div class="pregunta">
+            <button id="coloresobjetos-objetivo" class="objetivo-juego" type="button"
+                    aria-label="Escuchar otra vez la pregunta">
+              <span id="coloresobjetos-grande" class="dibujo-color-grande"></span>
+            </button>
+            <p id="nombre-coloresobjetos" class="pregunta-texto">Busca algo de este color</p>
+          </div>
+
+          <div id="opciones-coloresobjetos" class="opciones-juego"></div>
+
+          <p id="aviso-coloresobjetos" class="aviso-juego" aria-live="polite"></p>
+
+          <div id="fiesta-coloresobjetos" class="fiesta" aria-hidden="true"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-coloresobjetos-menu">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- PANTALLA: {TITULO} ---------- -->
+      <section id="pantalla-dondevive" class="pantalla pantalla-juego">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloDondeVive">¿DÓNDE VIVE?</h2>
+
+          <div class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">⭐</span>
+            <span id="marcador-dondevive" class="marcador-numero">0</span>
+          </div>
+        </div>
+
+        <div id="zona-dondevive" class="zona-juego zona-dondevive" data-modulo="dondevive">
+
+          <div class="pregunta">
+            <button id="dondevive-objetivo" class="objetivo-juego" type="button"
+                    aria-label="Escuchar otra vez la pregunta">
+              <span id="dondevive-grande" class="dibujo-grande">🐟</span>
+            </button>
+            <p id="nombre-dondevive" class="pregunta-texto">¿Dónde vive?</p>
+          </div>
+
+          <div id="opciones-dondevive" class="opciones-juego"></div>
+
+          <p id="aviso-dondevive" class="aviso-juego" aria-live="polite"></p>
+
+          <div id="fiesta-dondevive" class="fiesta" aria-hidden="true"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-inicio">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- PANTALLA: {TITULO} ---------- -->
+      <section id="pantalla-quesonido" class="pantalla pantalla-juego">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloQueSonido">¿QUÉ SONIDO ES?</h2>
+
+          <div class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">⭐</span>
+            <span id="marcador-quesonido" class="marcador-numero">0</span>
+          </div>
+        </div>
+
+        <div id="zona-quesonido" class="zona-juego zona-quesonido" data-modulo="quesonido">
+
+          <div class="pregunta">
+            <button id="quesonido-objetivo" class="objetivo-juego" type="button"
+                    aria-label="Escuchar otra vez la pregunta">
+              <span id="quesonido-grande" class="dibujo-grande dibujo-altavoz">🔊</span>
+            </button>
+            <p id="nombre-quesonido" class="pregunta-texto">¿Qué sonido es?</p>
+          </div>
+
+          <div id="opciones-quesonido" class="opciones-juego"></div>
+
+          <p id="aviso-quesonido" class="aviso-juego" aria-live="polite"></p>
+
+          <div id="fiesta-quesonido" class="fiesta" aria-hidden="true"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-inicio">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- PANTALLA: {TITULO} ---------- -->
+      <!-- ---------- MÓDULO CONCEPTOS Y POSICIONES: elegir etapa ---------- -->
+      <section id="pantalla-conceptos-menu" class="pantalla">
+
+        <p class="emoji-modulo" aria-hidden="true">📐</p>
+        <h2 class="titulo-seccion titulo-modulo" data-i18n="tituloConceptos">CONCEPTOS Y POSICIONES</h2>
+
+        <div class="menu-etapas">
+
+          <button class="boton-etapa boton-aprender" type="button" data-ir="pantalla-conceptos-aprender">
+            <span class="icono" aria-hidden="true">📚</span>
+            <span class="etiqueta" data-i18n="aprender">APRENDER</span>
+          </button>
+
+          <button class="boton-etapa boton-jugar" type="button" data-ir="pantalla-conceptos">
+            <span class="icono" aria-hidden="true">🎮</span>
+            <span class="etiqueta" data-i18n="jugar">JUGAR</span>
+          </button>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-inicio">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- MÓDULO CONCEPTOS Y POSICIONES: etapa 📚 APRENDER ---------- -->
+      <!-- ---------- MÓDULO CONCEPTOS Y POSICIONES: etapa 📚 APRENDER (álbum) ---------- -->
+      <section id="pantalla-conceptos-aprender" class="pantalla">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloConceptos">CONCEPTOS Y POSICIONES</h2>
+          <span class="etiqueta-etapa"><span aria-hidden="true">📚</span> <span data-i18n="aprender">APRENDER</span></span>
+          <span class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">👀</span>
+            <span id="aprender-conceptos-contador" class="marcador-numero">— / —</span>
+          </span>
+        </div>
+
+        <div id="zona-conceptos-aprender" class="zona-juego zona-aprender zona-album" data-modulo="conceptos">
+
+          <div class="aprender-grande">
+            <div id="aprender-conceptos-grande" class="aprender-cuadro"></div>
+            <p id="aprender-conceptos-nombre" class="aprender-nombre">Toca un concepto</p>
+            <button id="aprender-conceptos-escuchar" class="boton-escuchar apagado" type="button">
+              <span aria-hidden="true">🔊</span> <span data-i18n="escucharNombre">Escuchar el nombre</span>
+            </button>
+
+          </div>
+
+          <div id="aprender-conceptos-lista" class="aprender-lista album-pista"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-conceptos-menu">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <section id="pantalla-conceptos" class="pantalla pantalla-juego">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloConceptos">CONCEPTOS Y POSICIONES</h2>
+          <span class="etiqueta-etapa"><span aria-hidden="true">🎮</span> <span data-i18n="jugar">JUGAR</span></span>
+
+          <div class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">⭐</span>
+            <span id="marcador-conceptos" class="marcador-numero">0</span>
+          </div>
+        </div>
+
+        <div id="zona-conceptos" class="zona-juego zona-conceptos" data-modulo="conceptos">
+
+          <div class="pregunta">
+            <button id="conceptos-objetivo" class="objetivo-juego" type="button"
+                    aria-label="Escuchar otra vez la pregunta">
+              <span id="conceptos-grande" class="dibujo-grande">⬆️</span>
+            </button>
+            <p id="nombre-conceptos" class="pregunta-texto">¿Cuál es?</p>
+          </div>
+
+          <div id="opciones-conceptos" class="opciones-juego"></div>
+
+          <p id="aviso-conceptos" class="aviso-juego" aria-live="polite"></p>
+
+          <div id="fiesta-conceptos" class="fiesta" aria-hidden="true"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-conceptos-menu">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- PANTALLA: {TITULO} ---------- -->
+      <!-- ---------- MÓDULO EMOCIONES: elegir etapa ---------- -->
+      <section id="pantalla-emociones-menu" class="pantalla">
+
+        <p class="emoji-modulo" aria-hidden="true">😀</p>
+        <h2 class="titulo-seccion titulo-modulo" data-i18n="tituloEmociones">EMOCIONES</h2>
+
+        <div class="menu-etapas">
+
+          <button class="boton-etapa boton-aprender" type="button" data-ir="pantalla-emociones-aprender">
+            <span class="icono" aria-hidden="true">📚</span>
+            <span class="etiqueta" data-i18n="aprender">APRENDER</span>
+          </button>
+
+          <button class="boton-etapa boton-jugar" type="button" data-ir="pantalla-emociones">
+            <span class="icono" aria-hidden="true">🎮</span>
+            <span class="etiqueta" data-i18n="jugar">JUGAR</span>
+          </button>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-inicio">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- MÓDULO EMOCIONES: etapa 📚 APRENDER ---------- -->
+      <!-- ---------- MÓDULO EMOCIONES: etapa 📚 APRENDER (álbum) ---------- -->
+      <section id="pantalla-emociones-aprender" class="pantalla">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloEmociones">EMOCIONES</h2>
+          <span class="etiqueta-etapa"><span aria-hidden="true">📚</span> <span data-i18n="aprender">APRENDER</span></span>
+          <span class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">👀</span>
+            <span id="aprender-emociones-contador" class="marcador-numero">— / —</span>
+          </span>
+        </div>
+
+        <div id="zona-emociones-aprender" class="zona-juego zona-aprender zona-album" data-modulo="emociones">
+
+          <div class="aprender-grande">
+            <div id="aprender-emociones-grande" class="aprender-cuadro"></div>
+            <p id="aprender-emociones-nombre" class="aprender-nombre">Toca una emoción</p>
+            <button id="aprender-emociones-escuchar" class="boton-escuchar apagado" type="button">
+              <span aria-hidden="true">🔊</span> <span data-i18n="escucharNombre">Escuchar el nombre</span>
+            </button>
+
+          </div>
+
+          <div id="aprender-emociones-lista" class="aprender-lista album-pista"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-emociones-menu">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <section id="pantalla-emociones" class="pantalla pantalla-juego">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloEmociones">EMOCIONES</h2>
+          <span class="etiqueta-etapa"><span aria-hidden="true">🎮</span> <span data-i18n="jugar">JUGAR</span></span>
+
+          <div class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">⭐</span>
+            <span id="marcador-emociones" class="marcador-numero">0</span>
+          </div>
+        </div>
+
+        <div id="zona-emociones" class="zona-juego zona-emociones" data-modulo="emociones">
+
+          <div class="pregunta">
+            <button id="emociones-objetivo" class="objetivo-juego" type="button"
+                    aria-label="Escuchar otra vez la pregunta">
+              <img id="emociones-grande" class="dibujo-imagen-grande" src="" alt="">
+            </button>
+            <p id="nombre-emociones" class="pregunta-texto">¿Cómo se siente?</p>
+          </div>
+
+          <div id="opciones-emociones" class="opciones-juego"></div>
+
+          <p id="aviso-emociones" class="aviso-juego" aria-live="polite"></p>
+
+          <div id="fiesta-emociones" class="fiesta" aria-hidden="true"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-emociones-menu">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <!-- ---------- PANTALLA: MEMORIA ---------- -->
+      <!-- ---------- MÓDULO LABERINTOS: juego directo ---------- -->
+      <section id="pantalla-laberintos" class="pantalla">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloLaberintos">LABERINTOS</h2>
+          <span class="etiqueta-etapa"><span aria-hidden="true">🎮</span> <span data-i18n="jugar">JUGAR</span></span>
+          <div class="marcador" aria-live="polite">
+            <span class="marcador-icono" aria-hidden="true">⭐</span>
+            <span id="marcador-laberintos" class="marcador-numero">0</span>
+          </div>
+        </div>
+
+        <div id="zona-laberintos" class="zona-juego zona-laberintos" data-modulo="laberintos">
+
+          <p id="pista-laberintos" class="pregunta-texto" data-i18n="laberintoPista">Lleva el conejito hasta la zanahoria</p>
+
+          <div id="tablero-laberinto" class="tablero-laberinto"></div>
+
+          <p id="aviso-laberintos" class="aviso-juego" aria-live="polite"></p>
+
+          <div id="fiesta-laberintos" class="fiesta" aria-hidden="true"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-inicio">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+      <section id="pantalla-memoria" class="pantalla">
+
+        <div class="barra-juego">
+          <h2 class="titulo-seccion" data-i18n="tituloMemoria">MEMORIA</h2>
+
+          <div class="marcador" aria-live="polite">
+            <span class="marcador-texto" data-i18n="parejas">Parejas</span>
+            <span id="marcador-memoria" class="marcador-numero">0</span>
+          </div>
+        </div>
+
+        <div id="zona-memoria" class="zona-juego zona-memoria" data-modulo="memoria">
+
+          <div id="tablero-memoria" class="tablero-memoria"></div>
+
+          <p id="aviso-memoria" class="aviso-juego" aria-live="polite"></p>
+
+          <div id="fiesta-memoria" class="fiesta" aria-hidden="true"></div>
+
+        </div>
+
+        <button class="boton-volver" type="button" data-ir="pantalla-inicio">
+          <span aria-hidden="true">←</span> <span data-i18n="volver">Volver</span>
+        </button>
+      </section>
+
+    </main>
+
+    <!-- ===== PIE ===== -->
+    <footer class="pie">
+      <p data-i18n="pie">Hecho con 💛 para Lucas</p>
+    </footer>
+
+  </div>
+
+  <!-- Script principal del juego (al final para que el HTML ya exista) -->
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+<rect width="200" height="200" fill="#fffdf5"/>
+<!-- corazon rojo grande con brillo y latido -->
+<path d="M 116,20 L 128,20 L 134,8 L 142,28 L 150,20 L 166,20" fill="none" stroke="#e5484d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 22,54 L 12,42" fill="none" stroke="#e5484d" stroke-width="5" stroke-linecap="round"/>
+<path d="M 178,54 L 188,42" fill="none" stroke="#e5484d" stroke-width="5" stroke-linecap="round"/>
+<path d="M 100,190 C 36,140 18,106 18,78 C 18,52 38,34 62,34 C 80,34 94,46 100,62 C 106,46 120,34 138,34 C 162,34 182,52 182,78 C 182,106 164,140 100,190 Z" fill="#e5484d" stroke="#2b2b40" stroke-width="5" stroke-linejoin="round"/>
+<ellipse cx="62" cy="74" rx="15" ry="10" fill="#ffffff" opacity="0.85" transform="rotate(-35 62 74)"/>
+</svg>
