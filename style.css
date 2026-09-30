@@ -5430,3 +5430,89 @@ body {
     min-height: clamp(120px, 20vh, 180px) !important;
   }
 }
+
+/* =========================================================
+   34. EL AVISO, CENTRADO Y FLOTANTE
+   Estaba anclado abajo (bottom: max(5%, 12px)) y quedaba fuera del
+   foco visual (y tapado por la barra del navegador en el móvil).
+   Ahora aparece como una notificación emergente en el centro.
+   ========================================================= */
+
+.aviso-colores,
+.aviso-juego {
+  position: fixed !important;
+  left: 50% !important;
+  top: 50% !important;
+  bottom: auto !important;
+
+  transform: translate(-50%, -50%) scale(0.8) !important;
+  z-index: 9999 !important;
+  pointer-events: none !important;   /* no bloquea ningún toque */
+
+  width: max-content;
+  max-width: min(92vw, 640px);
+
+  padding: clamp(12px, 2.5vh, 20px) clamp(24px, 5vw, 44px) !important;
+  font-size: clamp(1.4rem, 4vw, 2.2rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.25;
+  text-align: center !important;
+  white-space: nowrap !important;
+
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #4fc9c0, #2dbdb3) !important;
+  border: 5px solid #ffffff !important;
+  border-radius: 999px !important;
+  box-shadow: 0 12px 32px rgba(45, 189, 179, 0.45) !important;
+
+  opacity: 0;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              opacity 0.2s ease !important;
+}
+
+/* Al aparecer, crece con un rebote suave en el centro */
+.aviso-colores.visible,
+.aviso-juego.visible {
+  transform: translate(-50%, -50%) scale(1) !important;
+  opacity: 1 !important;
+}
+
+/* El ánimo ("¡Vamos a intentarlo otra vez!") en morado */
+.aviso-colores.animo,
+.aviso-juego.animo {
+  background: linear-gradient(135deg, #a678f2, #7b58e6) !important;
+  box-shadow: 0 12px 32px rgba(123, 88, 230, 0.45) !important;
+}
+
+/* En celulares, un poco más contenido */
+@media (max-width: 650px) {
+  .aviso-colores,
+  .aviso-juego {
+    font-size: 1.3rem !important;
+    padding: 10px 24px !important;
+    border-width: 4px !important;
+  }
+}
+
+/* En una franja muy angosta el texto no cabe en una línea:
+   se permite partir en dos para que nunca se salga de la pantalla. */
+@media (max-width: 340px) {
+  .aviso-colores,
+  .aviso-juego {
+    white-space: normal !important;
+  }
+}
+
+/* El aviso de Laberintos sigue dentro del flujo: ahí informa un paso,
+   no celebra una respuesta, y no debe tapar el tablero. */
+.zona-laberintos .aviso-juego,
+.zona-laberintos .aviso-colores {
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  opacity: 1;
+  z-index: auto !important;
+  white-space: normal !important;
+}
